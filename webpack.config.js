@@ -11,7 +11,7 @@ var webpackConfig = {
     index: './src/scripts/index.js',
   },
   output: {
-    path: path.join(__dirname, 'public'), //输出目录的配置，模板、样式、脚本、图片等资源的路径配置都相对于它
+    path: path.join(__dirname, 'publish'), //输出目录的配置，模板、样式、脚本、图片等资源的路径配置都相对于它
     filename: 'js/[name]-bundle.js',            //每个页面对应的主js的生成配置
     chunkFilename: 'js/[id].chunk.js'   //chunk生成的配置
   },
@@ -31,7 +31,7 @@ var webpackConfig = {
   },
 
   devServer: {
-    contentBase: 'public', // Relative directory for base of server
+    contentBase: 'publish', // Relative directory for base of server
     // devtool: 'eval',
 
     hot: true, // Live-reload
