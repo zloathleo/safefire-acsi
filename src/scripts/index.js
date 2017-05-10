@@ -7,6 +7,7 @@ import MyRoutes from './components/MyRoutes';
  
 global._currentPath = '/';
 global._currentPath = URL.parse(document.URL).path;  
+console.log('_currentPath:' + global._currentPath);
 
 ReactDOM.render(
     <MyRoutes.IndexRouteConfig />,

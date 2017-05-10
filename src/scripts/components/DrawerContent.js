@@ -46,8 +46,7 @@ class DrawerContent extends React.Component {
             </Chip>
                 </div>
                 <List>
-                    <ListItem onClick={this.handleClickListItem.bind(this, 'Overview')} primaryText="Overview" rightIcon={<IconOverview />} />
-                    <ListItem onClick={this.handleClickListItem.bind(this, 'Analyze')} primaryText="Analyze" rightIcon={<ActionGrade />} />
+                    <ListItem onClick={this.handleClickListItem.bind(this, 'Question')} primaryText="Question" rightIcon={<IconOverview />} /> 
                     <ListItem onClick={this.handleClickListItem.bind(this, 'About')} primaryText="About" rightIcon={<IconAbout />} />
                 </List>
                 <div style={styles.logo} />

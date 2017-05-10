@@ -40,6 +40,7 @@ class Main extends React.Component {
   state = {
     open: false,
     title: '问卷调查',
+    pageKey: 'Question',
   };
 
   constructor(props) {
@@ -63,16 +64,29 @@ class Main extends React.Component {
 
   handleChangeDrawerItem(_key, _nativeEvent) {
     //改变页
-    let _routerHistory = this.router.history;
-    if (_key == 'Overview') {
-      _routerHistory.replace('overview');
-    } else if (_key == 'About') {
-      _routerHistory.replace('about');
+    let title = '';
+    switch (_key) {
+      case 'Question':
+        title = '问卷调查';
+        break;
+      case 'About':
+        title = '关于我们';
+        break;
     }
-    this.setState({ open: false, title: _key });
+    if (this.state.pageKey != _key) {
+      let _routerHistory = this.router.history;
+      if (_key == 'Question') {
+        _routerHistory.replace('question');
+      } else if (_key == 'About') {
+        _routerHistory.replace('about');
+      }
+
+    }
+    this.setState({ open: false, pageKey: _key, title: title });
+
   }
 
-  render() { 
+  render() {
     console.log('main render:' + global._currentPath);
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
