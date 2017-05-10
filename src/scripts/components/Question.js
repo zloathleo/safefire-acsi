@@ -59,7 +59,7 @@ const styles = {
     textarea: {
         resize: 'none',
         width: '90%',
-        borderColor: '#C2185B',
+        borderColor: '#d2c6bb',
         margin: '10px 0px 10px 0px',
     },
 

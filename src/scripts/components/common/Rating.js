@@ -15,7 +15,7 @@ const Ch = (props) => {
     let { checked, readOnly = false, ...p } = props;
     const st = readOnly ? { padding: '10px 20px 10px 0px' } : styles.editable;
     if (checked)
-        return <ToggleStar style={st} color='#FF7043' {...p} />;
+        return <ToggleStar style={st} color='#C2185B' {...p} />;
     else
         return <ToggleStarBorder style={st} color={colors.grey300} {...p} />;
 };
