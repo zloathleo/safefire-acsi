@@ -78,7 +78,7 @@ var webpackConfig = {
 module.exports = function makeWebpackConfig(cfgEnv) {
 
   if (cfgEnv && cfgEnv.compress === 'true') {
-    console.log('cfgEnv.compress------------------:');
+    console.log('-----webpack --env.compress=true ------------:');
     webpackConfig.plugins.push(
       new webpack.optimize.UglifyJsPlugin({
         compress: {

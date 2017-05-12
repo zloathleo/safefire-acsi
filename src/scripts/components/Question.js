@@ -11,9 +11,7 @@ import { transparent, black } from 'material-ui/styles/colors';
 import Rating from './common/Rating';
 import Utils from './common/Utils';
 import DataRandom from './common/DataRandom';
-
-// var fs = require("fs");
-
+ 
 const styles = {
     paper: {
         flex: 1,
@@ -53,7 +51,7 @@ const styles = {
         height: '40px',
         lineHeight: '40px',
         backgroundColor: 'rgb(226, 226, 226)',
-        fontSize: '10px',
+        fontSize: '15px',
     },
 
     textarea: {
