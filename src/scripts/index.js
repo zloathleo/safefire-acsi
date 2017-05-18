@@ -12,4 +12,5 @@ console.log('_currentPath:' + global._currentPath);
 ReactDOM.render(
     <MyRoutes.IndexRouteConfig />,
     document.getElementById('root')
+    
 );
