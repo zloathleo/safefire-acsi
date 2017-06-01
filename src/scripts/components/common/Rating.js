@@ -15,24 +15,21 @@ const Ch = (props) => {
     let { checked, readOnly = false, ...p } = props;
     const st = readOnly ? { padding: '10px 20px 10px 0px' } : styles.editable;
     if (checked)
-        return <ToggleStar style={st} color='#C2185B' {...p} />;
+        return <ToggleStar style={st} color='#FFD54F' {...p} />;
     else
-        return <ToggleStarBorder style={st} color={colors.grey300} {...p} />;
+        return <ToggleStarBorder style={st} color={'#B0BEC5'} {...p} />;
 };
 
 class Rating extends React.Component {
-  
+
     static defaultProps = {
         value: 0,
+        changeParam: undefined,
         readOnly: false
     };
 
     constructor(props) {
-        super(props);
-        props = {
-            value: 0,
-            readOnly: false,
-        }
+        super(props); 
 
         this.state = {
             hoveredIndex: 0,
@@ -47,7 +44,7 @@ class Rating extends React.Component {
     onCheck(i, e) {
         this.setState({ checkedIndex: i });
         if (this.props.onChange)
-            this.props.onChange(i);
+            this.props.onChange(i, this.props.changeParam);
     }
 
     render() {

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import URL from 'url';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import { AppBar, Drawer, MenuItem, Paper, IconButton } from 'material-ui';
@@ -20,7 +21,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const muiTheme = getMuiTheme({
   palette: {
-    primary1Color: '#88014F',
+    primary1Color: '#0D47A1',
     textColor: '#ffffff',
   }
 });
@@ -47,8 +48,7 @@ class Main extends React.Component {
     super(props);
 
     this.handleCollapse = this.handleCollapse.bind(this);
-    // this.doLogout = this.doLogout.bind(this);
-    this.handleChangeDrawerItem = this.handleChangeDrawerItem.bind(this);
+    // this.doLogout = this.doLogout.bind(this); 
 
 
   }
@@ -58,34 +58,12 @@ class Main extends React.Component {
   }
 
   doLogout(e) {
-    window.location = global._currentPath;
+    let qrCode = global._startParam.qrCode;
+    let _url = URL.resolve(global._currentPath, '?qrCode=' + qrCode);
+    window.location = _url;
     return false;
   }
-
-  handleChangeDrawerItem(_key, _nativeEvent) {
-    //改变页
-    let title = '';
-    switch (_key) {
-      case 'Question':
-        title = '问卷调查';
-        break;
-      case 'About':
-        title = '关于我们';
-        break;
-    }
-    if (this.state.pageKey != _key) {
-      let _routerHistory = this.router.history;
-      if (_key == 'Question') {
-        _routerHistory.replace('question');
-      } else if (_key == 'About') {
-        _routerHistory.replace('about');
-      }
-
-    }
-    this.setState({ open: false, pageKey: _key, title: title });
-
-  }
-
+ 
   render() {
     console.log('main render:' + global._currentPath);
     return (
@@ -93,27 +71,16 @@ class Main extends React.Component {
         <div>
           <AppBar
             title={this.state.title}
-            style={{ background: 'linear-gradient(60deg, #AD1457, #880E4F)' }}//背景渐变
-            onLeftIconButtonTouchTap={this.handleCollapse}
+            style={{ background: 'rgba(255,255,255 ,0)', boxShadow: '0px' }}//背景渐变
+
             iconElementRight={<IconButton onClick={this.doLogout}><IconArrowForward /></IconButton>}
           >
           </AppBar>
 
-          <Drawer
-            docked={false}
-            width={200}
-            open={this.state.open}
-            onRequestChange={(open) => this.setState({ open })}
-            containerStyle={{
-              background: '#333333',
-            }}>
-            <DrawerContent handleChangeDrawerItem={this.handleChangeDrawerItem} />
-          </Drawer>
-
           <Router ref={(ref) => this.router = ref} >
             <div>
-              <Route path={global._currentPath + 'main/question'} component={Question} />
-              <Route path={global._currentPath + 'main/about'} component={About} />
+              <Route path={URL.resolve(global._currentPath, 'main/question/:index')} component={Question} />
+              <Route path={URL.resolve(global._currentPath, 'main/about')} component={About} />
             </div>
           </Router >
 

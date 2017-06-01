@@ -33,10 +33,10 @@ var webpackConfig = {
   devServer: {
     contentBase: 'publish', // Relative directory for base of server
     // devtool: 'eval',
-
+    disableHostCheck: true,
     hot: true, // Live-reload
     inline: true,
-    port: 3000, // Port Number
+    port: 9000, // Port Number
     host: '0.0.0.0', // Change to '0.0.0.0' for external facing server
   },
 
