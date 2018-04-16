@@ -92,10 +92,11 @@ class Login extends React.Component {
         console.log('doLogin...');
         if (this.customerMobile.value.length > 10) {
             CommonConst.projectInfo.customerMobile = this.customerMobile.value;
-            CommonConst.projectInfo.customerName = this.customerName.value; 
-            CommonConst.userInput.valiCode = this.valiCode.value; 
+            // CommonConst.projectInfo.customerName = this.customerName.value;
+            CommonConst.projectInfo.customerName = this.customerMobile.value;
+            // CommonConst.userInput.valiCode = this.valiCode.value;
             this.loginLink.handleClick(e.nativeEvent);
-        }else{
+        } else {
             alert('请输入正确手机号');
         }
 
@@ -103,7 +104,10 @@ class Login extends React.Component {
     }
 
     render() {
-
+        //        <div style={{ display: 'inline' }}>
+        //           <input type="text" placeholder="输入验证码" style={{ width: '45%' }} maxLength='6' size={6} ref={(ref) => this.valiCode = ref} />
+        //          <button style={{ width: '55%', maxHeight: '49px' }} onClick={this.doGetValiCode}  >获取验证码</button>
+        //      </div>
         return (
             <MuiThemeProvider muiTheme={muiTheme}>
                 <div className='login-fullcontainer'>
@@ -112,21 +116,16 @@ class Login extends React.Component {
                             <div ref={(ref) => this.loginForm = ref}>
 
                                 <div style={styles.paper}>
-                                    感谢您对上海神明控制工程有限公司一直以来的信赖与支持！在此诚邀您就以下项目中您与我公司的合作进行满意度评价，期待您能给予我们客观、真实的评价。您的意见与建议是对上海神明控制工程有限公司技术与服务持续改进最好的鞭策和动力。
+                                    感谢您对safe-fire产品的信赖与支持！在此诚邀您就以下项目中您与我公司的合作进行满意度评价，期待您能给予我们客观、真实的评价。您的意见与建议是对我司在产品技术与客户服务持续改进最好的鞭策和动力。
                                 </div>
 
                                 <div style={styles.paper} ref={(ref) => this.projectName = ref}>
                                     项目名称：
-                                </div>
+                                </div> 
 
-                                <input type="text" placeholder="请输入您的名字" maxLength='6' ref={(ref) => this.customerName = ref} />
                                 <input type="text" placeholder="请输入您的手机号码" maxLength='11' ref={(ref) => this.customerMobile = ref} />
 
-                                <div style={{ display: 'inline' }}>
-                                    <input type="text" placeholder="输入验证码" style={{ width: '45%' }} maxLength='6' size={6} ref={(ref) => this.valiCode = ref} />
-                                    <button style={{ width: '55%', maxHeight: '49px' }} onClick={this.doGetValiCode}  >获取验证码</button>
-                                </div>
-                                <button onClick={this.doLogin} style={{ maxHeight: '49px' }} >填入验证码进入问卷</button>
+                                <button onClick={this.doLogin} style={{ maxHeight: '49px' }} >进入问卷</button>
 
                                 <Link ref={(ref) => this.loginLink = ref} to={{ pathname: '/main/question/0' }} ></Link>
                             </div>

@@ -1,3 +1,14 @@
 客户满意度问卷
 
 开始后台开发
+
+查看结果:
+SELECT 
+  c.`CONTENT`,i.`SCORE` ,i.`SUGGEST`
+FROM
+  `t_questionnaire_item` i 
+  LEFT JOIN `t_questionnaire_item_content` c 
+ON c.id = i.`CONTENT_ID`
+
+WHERE i.`QUESTIONNAIRE_ID` = 26 
+   

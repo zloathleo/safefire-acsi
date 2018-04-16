@@ -18,11 +18,14 @@ body {
 
 ::-webkit-input-placeholder { /* WebKit browsers */
     color:    #424242;
+}  
+::-moz-placeholder{/*Firefox 4-18*/
+  color: #424242;
 }
+
 
 .login-fullcontainer{
   min-height: 100%;  
- 
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;   

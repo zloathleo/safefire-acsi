@@ -1,6 +1,7 @@
 class CommonConst {
 
-    static serverPath = 'http://192.168.1.185:9090/quest/';
+    // static serverPath = 'http://www.safefire.cc/quest/';
+    static serverPath = 'http://116.62.150.38/quest/'; 
 
     static projectInfo = undefined;
 

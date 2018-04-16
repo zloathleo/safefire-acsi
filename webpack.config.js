@@ -12,8 +12,8 @@ var webpackConfig = {
   },
   output: {
     path: path.join(__dirname, 'publish'), //输出目录的配置，模板、样式、脚本、图片等资源的路径配置都相对于它
-    filename: 'js/[name]-bundle.js',            //每个页面对应的主js的生成配置
-    chunkFilename: 'js/[id].chunk.js'   //chunk生成的配置
+    filename: 'jss/[name]-bundle.js',            //每个页面对应的主js的生成配置
+    chunkFilename: 'jss/[id].chunk.js'   //chunk生成的配置
   },
   node: {
     console: true,
@@ -78,7 +78,7 @@ var webpackConfig = {
 module.exports = function makeWebpackConfig(cfgEnv) {
 
   if (cfgEnv && cfgEnv.compress === 'true') {
-    console.log('-----webpack --env.compress=true ------------:');
+    console.log('-----使用命令:webpack --env.compress=true ------------:');
     webpackConfig.plugins.push(
       new webpack.optimize.UglifyJsPlugin({
         compress: {
@@ -87,8 +87,7 @@ module.exports = function makeWebpackConfig(cfgEnv) {
       })
     );
 
-  }
-
+  } 
 
   return webpackConfig;
 };
